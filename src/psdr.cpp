@@ -221,8 +221,10 @@ PYBIND11_MODULE(psdr_cuda, m) {
 
     py::class_<PerspectiveCamera, Sensor>(m, "PerspectiveCamera")
         .def(py::init<float, float, float>())
-        .def_readwrite("to_world", &PerspectiveCamera::m_to_world);
-
+        .def_readwrite("to_world", &PerspectiveCamera::m_to_world)
+        .def_readwrite("sample_to_camera", &PerspectiveCamera::m_sample_to_camera)
+        .def_readwrite("camera_to_sample", &PerspectiveCamera::m_camera_to_sample);
+        
     // Emitters
 
     py::class_<Emitter, Object>(m, "Emitter");
